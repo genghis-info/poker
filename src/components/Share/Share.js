@@ -21,10 +21,10 @@ class Share extends Component {
   handleDone = (e) => { // eslint-disable-line
     this.setState({ tooltip: defaultTooltip });
   };
-  
+
   render() {
     const { roomName } = this.props;
-    const caption = `${process.env.REACT_APP_DOMAIN}/${roomName}`;
+    const caption = `${window.location.host}/${roomName}`;
     const link = `${window.location.protocol}//${caption}`;
 
     return (

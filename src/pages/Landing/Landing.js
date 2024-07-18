@@ -36,7 +36,7 @@ class Landing extends Component {
         <form className="Form" onSubmit={this.handleSubmit}>
           <h1>Poker4<strong>Fun</strong></h1>
           <p>
-            <label>{process.env.REACT_APP_DOMAIN} /</label>
+            <label>{window.location.host} /</label>
             <input
               type="text"
               value={this.state.roomName}

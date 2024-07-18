@@ -4,6 +4,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Share from 'components/Share/Share';
 import Notification from 'components/Notification/Notification';
 import SiteNotification from 'components/SiteNotification/SiteNotification';
+import Announcement from "../../components/Announcement/Announcement";
 import Join from 'components/Join/Join';
 import Actions from 'components/Actions/Actions';
 import Votes from 'components/Votes/Votes';
@@ -69,6 +70,7 @@ class Room extends Component {
     });
 
     this.socket.on('connect_error', (reason) => {
+      console.error('connect_error', reason);
       this.setState({
         me: null,
         disconnected: true,
@@ -177,7 +179,7 @@ class Room extends Component {
         </Helmet>
         <Share
           roomName={this.room} />
-        <SiteNotification />  
+        {window.location.host.includes('myob') ? <Announcement /> : <SiteNotification />}
         {me ? (
           <Actions
             show={show}
